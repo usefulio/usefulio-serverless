@@ -25,7 +25,7 @@ for SERVICE_PATH in "${SERVICES[@]}"; do
     # Install all dependencies.
     npm install
     # Deploy service to AWS.
-    serverless deploy --stage "$STAGE"
+    serverless deploy --stage $STAGE
   )
 done
 
