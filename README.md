@@ -1,4 +1,4 @@
-# UsefulIO Serverless
+# Useful IO Serverless
 
 This repository is intended to store all the Serverless services for the given application in one place. All the services are stored in the `./services` directory.
 

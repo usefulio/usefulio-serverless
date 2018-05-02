@@ -3,7 +3,12 @@ NAME=$1
 # Install and use Node.js version 8.10.
 source ~/.nvm/nvm.sh
 nvm install 8.10
-# Check if directory exists.
+# Check if the "services" directory exists.
+if [ ! -d ./services ]; then
+  # Create the "services" directory.
+  mkdir services
+fi
+# Check if a directory with the given name already exists.
 if [ ! -d ./services/$NAME ]; then
   # Copy everything from the template directory.
   cp -rf ./template ./services/$NAME
