@@ -18,7 +18,7 @@ To test all the functions locally, you have to navigate to your service director
 
 If you want to use the `@useful/mongo` package in your service, you have to set the following environment variables:
 
-- MONGO_URL
-- MONGO_DATABASE
-- MONGO_SSL
-- MONGO_SSL_VALIDATE
+- `MONGO_URL` - MongoDB connection string,
+- `MONGO_DATABASE` - database name,
+- `MONGO_SSL` - enable SSL connection (boolean),
+- `MONGO_SSL_VALIDATE`- validate mongod server certificate against Certificate Authority (boolean).
