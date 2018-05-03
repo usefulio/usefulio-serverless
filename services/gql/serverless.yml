@@ -15,15 +15,18 @@ provider:
 functions:
   # Authorizer:
   #   handler: handlers.authorizer
-  # LoginWithPassword:
-  #   handler: handlers.loginWithPassword
-  #   events:
-  #     - http:
-  #         path: loginWithPassword
-  #         method: post
-  #         cors: true
+  #   timeout: 300
+  LoginWithPassword:
+    handler: handlers.loginWithPassword
+    timeout: 300
+    events:
+      - http:
+          path: loginWithPassword
+          method: post
+          cors: true
   GraphQL:
     handler: handlers.graphql
+    timeout: 300
     events:
       - http:
           path: graphql
@@ -37,6 +40,7 @@ functions:
           # authorizer: Authorizer
   GraphiQL:
     handler: handlers.graphiql
+    timeout: 300
     events:
       - http:
           path: graphiql
@@ -44,6 +48,7 @@ functions:
           cors: true
   Playground:
     handler: handlers.playground
+    timeout: 300
     events:
       - http:
           path: playground

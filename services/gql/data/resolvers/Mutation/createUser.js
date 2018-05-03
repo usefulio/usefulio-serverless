@@ -1,5 +1,5 @@
-import { createUser } from "../../repositories/User";
+import createUser from "../../repositories/User/createUser";
 
 export default async (root, args, context) => {
-  return await createUser();
+  return await createUser(args.input);
 };

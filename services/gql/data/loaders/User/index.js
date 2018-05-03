@@ -1,6 +1,6 @@
 import DataLoader from "dataloader";
-import ensureOrder from "../utils/ensureOrder";
-import { getUsersByIds } from "../../repositories/User";
+import ensureOrder from "../../utils/ensureOrder";
+import getUsersByIds from "../../repositories/User/getUsersByIds";
 
 export default new DataLoader(async ids => {
   const users = await getUsersByIds(ids);

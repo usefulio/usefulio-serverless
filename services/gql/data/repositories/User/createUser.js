@@ -1,66 +1,27 @@
 import Users from "./Users";
+import bcryptjs from "bcryptjs";
+import getUserByEmail from "./getUserByEmail";
 
-const firstNames = [
-  "James",
-  "John",
-  "Robert",
-  "Michael",
-  "William",
-  "David",
-  "Richard",
-  "Joseph",
-  "Thomas",
-  "Charles",
-  "Christopher",
-  "Daniel",
-  "Matthew",
-  "Anthony",
-  "Donald",
-  "Mark",
-  "Paul",
-  "Steven",
-  "Andrew",
-  "Kenneth"
-];
+const createUser = async data => {
+  const { email, password, firstName, lastName } = data;
 
-const lastNames = [
-  "Smith",
-  "Johnson",
-  "Williams",
-  "Jones",
-  "Brown",
-  "Davis",
-  "Miller",
-  "Wilson",
-  "Moore",
-  "Taylor",
-  "Anderson",
-  "Thomas",
-  "Jackson",
-  "White",
-  "Harris",
-  "Martin",
-  "Thompson",
-  "Garcia",
-  "Martinez",
-  "Robinson"
-];
+  if (await getUserByEmail(email)) {
+    throw new Error("Email already exists");
+  }
 
-const createUser = async () => {
-  const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-  const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+  const id = String(Users.length + 1);
+  const hashed = await bcryptjs.hash(password, 10);
+
   const user = {
-    id: String(Users.length + 1),
-    email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}@example.com`,
+    id,
+    email,
+    password: hashed,
     firstName,
     lastName
   };
   Users.push(user);
+
   return user;
 };
-
-createUser();
-createUser();
-createUser();
 
 export default createUser;
