@@ -1,5 +1,5 @@
 import DataLoader from "dataloader";
-import ensureOrder from "../../utils/ensureOrder";
+import ensureOrder from "../../../utils/ensureOrder";
 import getUsersByIds from "../../repositories/User/getUsersByIds";
 
 export default new DataLoader(async ids => {

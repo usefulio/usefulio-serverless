@@ -1,5 +1,5 @@
 import bcryptjs from "bcryptjs";
-import generateToken from "../data/utils/generateToken";
+import generateToken from "../utils/generateToken";
 import getUserByEmail from "../data/repositories/User/getUserByEmail";
 
 export default async (request, context, callback) => {

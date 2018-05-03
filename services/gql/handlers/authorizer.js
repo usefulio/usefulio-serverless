@@ -17,6 +17,10 @@ const generatePolicy = function(principalId, effect, resource) {
   return authResponse;
 };
 
+class Test {
+  static propTypes = {};
+}
+
 export default (event, context, callback) => {
   const authorizationToken = event.authorizationToken;
   // Request is unauthorized if there is no token in request's headers.

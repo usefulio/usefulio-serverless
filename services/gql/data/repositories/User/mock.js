@@ -1,5 +1,5 @@
 import createUser from "./createUser";
-import sha256 from "../../utils/sha256";
+import sha256 from "../../../utils/sha256";
 
 const firstNames = [
   "James",
