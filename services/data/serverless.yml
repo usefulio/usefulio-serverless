@@ -1,0 +1,51 @@
+service: data
+
+plugins:
+  - serverless-webpack
+  - serverless-mocha-plugin
+  - serverless-offline
+
+custom: ${file(../../config/custom.${opt:stage, "local"}.js)}
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  environment: ${file(../../config/provider.environment.${opt:stage, "local"}.js)}
+
+functions:
+  # Authorizer:
+  #   handler: handlers.authorizer
+  # LoginWithPassword:
+  #   handler: handlers.loginWithPassword
+  #   events:
+  #     - http:
+  #         path: loginWithPassword
+  #         method: post
+  #         cors: true
+  GraphQL:
+    handler: handlers.graphql
+    events:
+      - http:
+          path: graphql
+          method: get
+          cors: true
+          # authorizer: Authorizer
+      - http:
+          path: graphql
+          method: post
+          cors: true
+          # authorizer: Authorizer
+  GraphiQL:
+    handler: handlers.graphiql
+    events:
+      - http:
+          path: graphiql
+          method: get
+          cors: true
+  Playground:
+    handler: handlers.playground
+    events:
+      - http:
+          path: playground
+          method: get
+          cors: true
