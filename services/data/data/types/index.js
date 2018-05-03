@@ -1,21 +1,7 @@
-export default `
-type User {
-  id: ID!
-  email: String
-  firstName: String
-  lastName: String
-}
+import Mutation from "./Mutation.graphql";
+import Query from "./Query.graphql";
+import User from "./User.graphql";
+import combineAstSchemas from "./utils/combineAstSchemas";
+import schema from "./schema.graphql";
 
-type Query {
-  user(id: String!): User
-}
-
-type Mutation {
-  createUser: User
-}
-
-schema {
-  query: Query
-  mutation: Mutation
-}
-`;
+export default combineAstSchemas([User, Query, Mutation, schema]);
