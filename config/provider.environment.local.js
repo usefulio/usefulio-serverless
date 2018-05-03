@@ -5,5 +5,6 @@ module.exports = () => ({
   MONGO_URL: "mongodb://localhost:3001",
   MONGO_DATABASE: "production",
   MONGO_SSL: false,
-  MONGO_SSL_VALIDATE: false
+  MONGO_SSL_VALIDATE: false,
+  AUTHORIZATION_SECRET: "secret"
 });

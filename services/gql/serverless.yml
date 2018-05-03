@@ -13,9 +13,9 @@ provider:
   environment: ${file(../../config/provider.environment.${opt:stage, "local"}.js)}
 
 functions:
-  # Authorizer:
-  #   handler: handlers.authorizer
-  #   timeout: 300
+  Authorizer:
+    handler: handlers.authorizer
+    timeout: 300
   LoginWithPassword:
     handler: handlers.loginWithPassword
     timeout: 300
@@ -32,12 +32,12 @@ functions:
           path: graphql
           method: get
           cors: true
-          # authorizer: Authorizer
+          authorizer: Authorizer
       - http:
           path: graphql
           method: post
           cors: true
-          # authorizer: Authorizer
+          authorizer: Authorizer
   GraphiQL:
     handler: handlers.graphiql
     timeout: 300
