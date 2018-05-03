@@ -1,6 +1,7 @@
+import * as loaders from "../data/loaders";
+
 import _get from "lodash/get";
 import { graphqlLambda } from "apollo-server-lambda";
-import loaders from "../data/loaders";
 import schema from "../data/schema";
 
 export default async (request, context, callback) => {
