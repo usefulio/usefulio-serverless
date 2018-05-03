@@ -1,4 +1,4 @@
-service: data
+service: gql
 
 plugins:
   - serverless-webpack
