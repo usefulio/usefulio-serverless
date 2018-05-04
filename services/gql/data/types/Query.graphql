@@ -1,3 +1,4 @@
 type Query {
+  echo(message: String!): String
   user(id: String!): User
 }
