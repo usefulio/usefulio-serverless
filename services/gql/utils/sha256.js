@@ -41,7 +41,7 @@ export default s => {
   }
 
   function core_sha256(m, l) {
-    const K = new Array(
+    const K = [
       0x428a2f98,
       0x71374491,
       0xb5c0fbcf,
@@ -106,8 +106,8 @@ export default s => {
       0xa4506ceb,
       0xbef9a3f7,
       0xc67178f2
-    );
-    const HASH = new Array(
+    ];
+    const HASH = [
       0x6a09e667,
       0xbb67ae85,
       0x3c6ef372,
@@ -116,15 +116,15 @@ export default s => {
       0x9b05688c,
       0x1f83d9ab,
       0x5be0cd19
-    );
+    ];
     var W = new Array(64);
-    var a, b, c, d, e, f, g, h, i, j;
+    var a, b, c, d, e, f, g, h;
     var T1, T2;
 
     m[l >> 5] |= 0x80 << (24 - l % 32);
     m[(((l + 64) >> 9) << 4) + 15] = l;
 
-    for (var i = 0; i < m.length; i += 16) {
+    for (let i = 0; i < m.length; i += 16) {
       a = HASH[0];
       b = HASH[1];
       c = HASH[2];
@@ -134,7 +134,7 @@ export default s => {
       g = HASH[6];
       h = HASH[7];
 
-      for (var j = 0; j < 64; j++) {
+      for (let j = 0; j < 64; j++) {
         if (j < 16) W[j] = m[j + i];
         else
           W[j] = safe_add(
@@ -174,9 +174,9 @@ export default s => {
   }
 
   function str2binb(str) {
-    var bin = Array();
-    var mask = (1 << chrsz) - 1;
-    for (var i = 0; i < str.length * chrsz; i += chrsz) {
+    const bin = [];
+    const mask = (1 << chrsz) - 1;
+    for (let i = 0; i < str.length * chrsz; i += chrsz) {
       bin[i >> 5] |= (str.charCodeAt(i / chrsz) & mask) << (24 - i % 32);
     }
     return bin;
