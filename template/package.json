@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "invoke:hello": "serverless invoke local --function hello",
-    "testOnly": "serverless invoke test --compilers js:@babel/register --root .webpack/service",
-    "test": "serverless webpack && serverless invoke test --compilers js:@babel/register --root .webpack/service"
+    "start": "serverless offline",
+    "build": "serverless webpack",
+    "test": "export SERVERLESS_TEST=1 && npm run build && serverless invoke test --root .webpack/service --path .webpack",
+    "invoke:hello": "serverless invoke local --function hello"
   },
   "dependencies": {
     "@useful/mongo": "^0.1.5"
