@@ -8,7 +8,7 @@
 export default async (input, context, callback) => {
   try {
     // await connect();
-    // const Collection = getCollection("collection");
+    // const Collection = await getCollection("collection");
     // await Collection.insert({ _id: generateId(), name: "Name" });
     const body = JSON.stringify({
       message: "Go Serverless v1.0! Your function executed successfully!",

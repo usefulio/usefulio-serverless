@@ -16,14 +16,23 @@ functions:
   Authorizer:
     handler: handlers.authorizer
     timeout: 300
-  LoginWithPassword:
-    handler: handlers.loginWithPassword
+  Login:
+    handler: handlers.login
     timeout: 300
     events:
       - http:
-          path: loginWithPassword
+          path: login
           method: post
-          cors: true
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
   GraphQL:
     handler: handlers.graphql
     timeout: 300
@@ -31,13 +40,19 @@ functions:
       - http:
           path: graphql
           method: get
-          cors: true
           authorizer: Authorizer
-      - http:
-          path: graphql
-          method: post
-          cors: true
-          authorizer: Authorizer
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - Access-Control-Allow-Headers
+              - Access-Control-Allow-Origin
+            allowCredentials: true
   GraphiQL:
     handler: handlers.graphiql
     timeout: 300
@@ -45,7 +60,18 @@ functions:
       - http:
           path: graphiql
           method: get
-          cors: true
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - Access-Control-Allow-Headers
+              - Access-Control-Allow-Origin
+            allowCredentials: true
   Playground:
     handler: handlers.playground
     timeout: 300
@@ -53,4 +79,15 @@ functions:
       - http:
           path: playground
           method: get
-          cors: true
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - Access-Control-Allow-Headers
+              - Access-Control-Allow-Origin
+            allowCredentials: true

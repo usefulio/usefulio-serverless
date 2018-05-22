@@ -9,6 +9,6 @@
     "invoke:hello": "serverless invoke local --function hello"
   },
   "dependencies": {
-    "@useful/mongo": "^0.1.5"
+    "@useful/mongo": "^0.2.0"
   }
 }
