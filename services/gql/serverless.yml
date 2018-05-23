@@ -53,6 +53,22 @@ functions:
               - Access-Control-Allow-Headers
               - Access-Control-Allow-Origin
             allowCredentials: true
+      - http:
+          path: graphql
+          method: post
+          authorizer: Authorizer
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - Access-Control-Allow-Headers
+              - Access-Control-Allow-Origin
+            allowCredentials: true
   GraphiQL:
     handler: handlers.graphiql
     timeout: 300
